@@ -64,3 +64,5 @@ for epoch in iter_counter.training_epochs():
     iter_counter.record_epoch_end()
     model.save(epoch)
     print(f"💾 Model saved at epoch {epoch}")
+
+# python train.py --model arrange --netG baseconv --norm_type batch --use_th --th 0.5 --dataroot ./KADID10K/images --dataset_mode kadid

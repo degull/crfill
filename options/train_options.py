@@ -21,14 +21,14 @@ class TrainOptions(BaseOptions):
         parser.add_argument('--tf_log', action='store_true', help='if specified, use tensorboard logging. Requires tensorflow installed')
 
         #  datast
-        parser.add_argument('--dataset_mode_train', type=str, default='coco')
-        parser.add_argument('--dataset_mode', type=str, default='coco')
+        parser.add_argument('--dataset_mode_train', type=str, default='kadid')
+        parser.add_argument('--dataset_mode', type=str, default='kadid')
         parser.add_argument('--dataset_mode_val', type=str, required=False)
 
         # for training
         parser.add_argument('--continue_train', action='store_true', help='continue training: load the latest model')
         parser.add_argument('--which_epoch', type=str, default='latest', help='which epoch to load? set to latest to use latest cached model')
-        parser.add_argument('--niter', type=int, default=1, help='# of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay')
+        parser.add_argument('--niter', type=int, default=50, help='# of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay')
         parser.add_argument('--niter_decay', type=int, default=0, help='# of iter to linearly decay learning rate to zero')
         parser.add_argument('--optimizer', type=str, default='adam')
         parser.add_argument('--beta1', type=float, default=0.0, help='momentum term of adam')

@@ -81,10 +81,11 @@ class InpaintModel(torch.nn.Module):
         netG = networks.define_G(opt)
         netD = networks.define_D(opt) if opt.isTrain else None
 
-        if not opt.isTrain or opt.continue_train:
+        if hasattr(opt, 'continue_train') and opt.continue_train:
             netG = util.load_network(netG, 'G', opt.which_epoch, opt)
             if opt.isTrain:
                 netD = util.load_network(netD, 'D', opt.which_epoch, opt)
+
         return netG, netD
 
     def preprocess_input(self, data):
